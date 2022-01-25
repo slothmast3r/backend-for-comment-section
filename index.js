@@ -3,6 +3,18 @@ const app = express();
 const importData =require("./data.json")
 const cors = require("cors");
 
+import dotenv from "dotenv-safe"
+import pg from "pg"
+
+const Pool = pg.Pool
+
+dotenv.config()
+
+export const pool = new Pool({
+    connectionString:  process.env.DATABASE_URL,
+    ssl: true,
+})
+
 let port = process.env.PORT || 3000;
 
 app.get("/",((req,res)=>{
@@ -10,7 +22,7 @@ app.get("/",((req,res)=>{
 }))
 
 app.get("/data", (req,res)=>{
-    res.send(importData)
+    return res.status(200).json(importData)
 })
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
