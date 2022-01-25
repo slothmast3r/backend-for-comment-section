@@ -14,13 +14,6 @@ const cors = require("cors");
 
 let port = process.env.PORT || 3000;
 
-app.get("/",((req,res)=>{
-    return res.status(200).json(importData)
-}))
-
-app.get("/data", (req,res)=>{
-    return res.status(200).json(importData)
-})
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
     res.header(
@@ -39,6 +32,13 @@ app.use((req, res, next) => {
 
 
 app.use(cors())
+app.get("/",((req,res)=>{
+    return res.status(200).json(importData)
+}))
+
+app.get("/data", (req,res)=>{
+    return res.status(200).json(importData)
+})
 
 app.listen(port,()=>{
     console.log(`Exapmle app ${port}`)
