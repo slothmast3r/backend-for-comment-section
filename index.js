@@ -2,15 +2,6 @@ const express = require("express")
 const app = express();
 const importData =require("./data.json")
 
-// const dotenv = require( "dotenv-safe")
-// const pg =require("pg")
-// const Pool = pg.Pool
-// dotenv.config()
-// const pool = new Pool({
-//     connectionString:  process.env.DATABASE_URL,
-//     ssl: true,
-// })
-
 let port = process.env.PORT || 3000;
 
 app.use((req, res, next) => {
