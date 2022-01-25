@@ -3,17 +3,14 @@ const app = express();
 const importData =require("./data.json")
 const cors = require("cors");
 
-const dotenv = require( "dotenv-safe")
-const pg =require("pg")
-
-const Pool = pg.Pool
-
-dotenv.config()
-
-const pool = new Pool({
-    connectionString:  process.env.DATABASE_URL,
-    ssl: true,
-})
+// const dotenv = require( "dotenv-safe")
+// const pg =require("pg")
+// const Pool = pg.Pool
+// dotenv.config()
+// const pool = new Pool({
+//     connectionString:  process.env.DATABASE_URL,
+//     ssl: true,
+// })
 
 let port = process.env.PORT || 3000;
 
