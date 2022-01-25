@@ -3,8 +3,8 @@ const app = express();
 const importData =require("./data.json")
 const cors = require("cors");
 
-import dotenv from "dotenv-safe"
-import pg from "pg"
+const dotenv = require( "dotenv-safe")
+const pg =require("pg")
 
 const Pool = pg.Pool
 
