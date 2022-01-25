@@ -15,7 +15,7 @@ const cors = require("cors");
 let port = process.env.PORT || 3000;
 
 app.get("/",((req,res)=>{
-    res.send("Hello World")
+    return res.status(200).json(importData)
 }))
 
 app.get("/data", (req,res)=>{
