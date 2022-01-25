@@ -27,6 +27,10 @@ app.use((req, res, next) => {
     }
     next()
 })
+
+
+app.use(cors())
+
 app.listen(port,()=>{
     console.log(`Exapmle app ${port}`)
 })
