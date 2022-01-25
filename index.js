@@ -1,7 +1,6 @@
 const express = require("express")
 const app = express();
 const importData =require("./data.json")
-const cors = require("cors");
 
 // const dotenv = require( "dotenv-safe")
 // const pg =require("pg")
@@ -31,7 +30,6 @@ app.use((req, res, next) => {
 })
 
 
-app.use(cors())
 app.get("/",((req,res)=>{
     return res.status(200).json(importData)
 }))
