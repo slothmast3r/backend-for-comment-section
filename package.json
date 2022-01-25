@@ -1,12 +1,19 @@
 {
-  "name": "interactive-comment-section",
+  "name": "tutlol",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "engines": {
+    "node": "12.22.9"
+  }
 }
