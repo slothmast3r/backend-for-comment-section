@@ -4,6 +4,21 @@ const importData = require("./data.json")
 
 let port = process.env.PORT || 3000;
 
+
+import { createClient } from 'redis';
+
+(async () => {
+    const client = createClient({
+        url: process.env.REDISTOGO_URL
+    });
+
+    client.on('error', (err) => console.log('Redis Client Error', err));
+
+    await client.connect();
+
+    await client.set('key', 'value');
+    const value = await client.get('key');
+})();
 const { Pool } = require('pg');
 const pool = new Pool({
     connectionString: process.env.DATABSE_URL,
@@ -11,6 +26,7 @@ const pool = new Pool({
         rejectUnauthorized: false
     }
 });
+
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
