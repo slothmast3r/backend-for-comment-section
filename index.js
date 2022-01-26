@@ -6,7 +6,7 @@ let port = process.env.PORT || 3000;
 
 const { Pool } = require('pg');
 const pool = new Pool({
-    connectionString: process.env.HEROKU_POSTGRESQL_RED_URL,
+    connectionString: process.env.DATABSE_URL,
     ssl: {
         rejectUnauthorized: false
     }
@@ -33,7 +33,9 @@ app.use((req, res, next) => {
 app.get('/db', async (req, res) => {
     try {
         const client = await pool.connect();
-        const result = await client.query('SELECT * FROM test_table');
+        const result = await client.query(
+            'SELECT * FROM test_table'
+        );
         const results = { 'results': (result) ? result.rows : null};
         res.render('pages/db', results );
         client.release();
