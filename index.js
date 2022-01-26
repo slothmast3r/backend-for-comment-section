@@ -5,10 +5,10 @@ const importData = require("./data.json")
 let port = process.env.PORT || 3000;
 
 
-import { createClient } from 'redis';
+const redis = require('redis');
 
 (async () => {
-    const client = createClient({
+    const client = redis.createClient({
         url: process.env.REDISTOGO_URL
     });
 
