@@ -10,7 +10,7 @@ const redis = require('redis');
 (async () => {
     try {
         const client = redis.createClient({
-            url: process.env.REDIS_URL
+            url: process.env.REDISTOGO_URL
         });
 
         client.on('error', (err) => console.log('Redis Client Error', err));
