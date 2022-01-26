@@ -8,16 +8,21 @@ let port = process.env.PORT || 3000;
 const redis = require('redis');
 
 (async () => {
-    const client = redis.createClient({
-        url: process.env.REDIS_URL
-    });
+    try {
+        const client = redis.createClient({
+            url: process.env.REDIS_URL
+        });
 
-    client.on('error', (err) => console.log('Redis Client Error', err));
+        client.on('error', (err) => console.log('Redis Client Error', err));
 
-    await client.connect();
+        await client.connect();
 
-    await client.set('key', 'value');
-    const value = await client.get('key');
+        await client.set('key', 'value');
+        const value = await client.get('key');
+    }
+    catch (e){
+        console.error(e)
+    }
 })();
 const { Pool } = require('pg');
 const pool = new Pool({
