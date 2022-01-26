@@ -21,7 +21,7 @@ const redis = require('redis');
         const value = await client.get('key');
         await client.hSet('key', 'field', 'value');
         let xd = await client.hGetAll('key');
-        console.log(xd)
+        console.log(xd,value)
     }
     catch (e){
         console.error(e)
